@@ -1,0 +1,88 @@
+/* Media Queries */
+
+@media only screen and (max-width: 600px) {
+  .wrapper ul li a {
+    font-size: 50px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 5px 50px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .wrapper ul li a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;  
+    width: 100%;
+    height: 30px;
+    z-index: -1;
+    background: #353535;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+
+  .wrapper ul {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .wrapper ul {
+    width: 100%;
+  }
+
+  .wrapper ul li a {
+    font-size: 40px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 5px 50px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .wrapper ul li a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    z-index: -1;
+    background: #353535;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .wrapper ul li a {
+    font-size: 50px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 5px 50px;  
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .wrapper ul li a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    z-index: -1;
+    background: #353535;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+
+  .wrapper ul {
+    width: 100%;
+  }
+}
