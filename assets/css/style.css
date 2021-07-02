@@ -154,7 +154,6 @@ nav {
   border-radius: 10px;
   border: 0;
   margin-bottom: 1.5em;
-  margin-right: 100px;
 }
 .card:hover {
   transform: scale(1.1);
@@ -192,10 +191,10 @@ nav {
   margin-bottom: 8%;
   margin-top: -10%;
   text-align: center;
-  color: #0062cc;
+  color: var(--gray-900);
 }
 .contact-form .btnContact {
-  width: 50%;
+  width: 100%;
   border: none;
   border-radius: 1rem;
   padding: 1.5%;
@@ -225,4 +224,13 @@ nav {
   font-size: 1.5rem;
   color: #fff;
   margin: 0 var(--mb-2);
+}
+
+@media screen and (min-width: 768px) {
+  .contact__form {
+    width: 360px;
+  }
+  .contact__container {
+    justify-items: center;
+  }
 }
