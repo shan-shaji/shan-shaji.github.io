@@ -187,7 +187,6 @@ nav {
 /* ==========works section========== */
 
 #works .works-container {
-  border-radius: 50px;
   background-color: var(--secondary-color);
 }
 #works h1 span {
@@ -253,6 +252,7 @@ nav {
   text-align: center;
   color: var(--gray-900);
 }
+
 .contact-form .btnContact {
   width: 100%;
   border: none;
