@@ -77,64 +77,77 @@ nav {
 
 /* ==========Skills section========== */
 
-#skills h1 span {
+#services h1 span {
   background-color: var(--secondary-color);
   color: white;
 }
 
-.skills__container {
-  row-gap: 2rem;
-  text-align: center;
+.services-card {
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+  border-radius: 10px;
+  border: 0;
+  margin-bottom: 1.5em;
 }
-.skills__subtitle {
-  margin-bottom: var(--mb-2);
+
+.services-card:hover {
+  transform: scale(1.1);
+  background-color: #5033ff;
+  color: white;
 }
-.skills__text {
-  margin-bottom: var(--mb-4);
+
+.card {
+  border: none;
+  border-radius: 10px;
 }
-.skills__data {
+
+.c-details span {
+  font-weight: 300;
+  font-size: 13px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  background-color: #eee;
+  border-radius: 15px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  position: relative;
-  font-weight: var(--font-semi);
-  padding: 0.5rem 1rem;
-  margin-bottom: var(--mb-4);
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 25px rgba(14, 36, 49, 0.15);
+  justify-content: center;
 }
-.skills__icon {
-  font-size: 2rem;
-  margin-right: var(--mb-2);
-  color: var(--first-color);
+
+.icon i:hover {
+  color: var(--gray-900);
 }
-.skills__names {
+
+.badge span {
+  background-color: #dfdfdf46;
+  width: 60px;
+  height: 25px;
+  padding-bottom: 3px;
+  border-radius: 5px;
   display: flex;
+  color: var(--gray-900);
+  justify-content: center;
   align-items: center;
 }
-.skills__bar {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background-color: var(--first-color);
-  height: 0.25rem;
-  border-radius: 0.5rem;
-  z-index: var(--z-back);
+
+.progress {
+  height: 10px;
+  border-radius: 10px;
 }
-.skills__html {
-  width: 95%;
+
+.progress div {
+  background-color: var(--gray-900);
 }
-.skills__css {
-  width: 85%;
+
+.text1 {
+  font-size: 14px;
+  font-weight: 600;
 }
-.skills__js {
-  width: 65%;
-}
-.skills__ux {
-  width: 85%;
-}
-.skills__img {
-  border-radius: 0.5rem;
+
+.text2 {
+  color: #a5aec0;
 }
 
 /* ==========works section========== */
@@ -148,14 +161,14 @@ nav {
   color: var(--gray-900);
 }
 
-.card {
+.works-card {
   transition: transform 0.2s ease;
   box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
   border-radius: 10px;
   border: 0;
   margin-bottom: 1.5em;
 }
-.card:hover {
+.works-card:hover {
   transform: scale(1.1);
   background-color: #5033ff;
   color: white;
