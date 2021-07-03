@@ -33,6 +33,10 @@ nav {
   font-weight: 600;
 }
 
+.nav-link.active {
+  color: var(--secondary-color);
+}
+
 .nav-container .nav-logo {
   background-color: var(--gray-100);
   border-radius: 50px;
@@ -50,10 +54,21 @@ nav {
 }
 
 .hero-content div span {
-  background-color: #5033ff;
   font-weight: 700;
+  position: relative;
   font-size: 80px;
-  color: white;
+  color: var(--gray-900);
+}
+
+.hero-content div span::after {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  background-color: var(--secondary-color);
+  left: 0px;
+  z-index: -1;
+  bottom: 0px;
 }
 
 .social-icon {
@@ -67,15 +82,38 @@ nav {
 }
 
 #about h1 span {
-  background-color: white;
+  position: relative;
   color: var(--gray-900);
+  z-index: 5;
 }
 
+#about h1 span::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 20px;
+  width: 100%;
+  left: 0px;
+  bottom: 0px;
+  z-index: -1;
+}
 /* ==========Skills section========== */
 
 #services h1 span {
+  position: relative;
+  color: var(--gray-900);
+  z-index: 5;
+}
+
+#services h1 span::after {
+  content: "";
+  position: absolute;
   background-color: var(--secondary-color);
-  color: white;
+  height: 20px;
+  width: 100%;
+  left: 0px;
+  bottom: 0px;
+  z-index: -1;
 }
 
 .services-card {
@@ -149,12 +187,24 @@ nav {
 /* ==========works section========== */
 
 #works .works-container {
-  border-radius: 10px;
+  border-radius: 50px;
   background-color: var(--secondary-color);
 }
 #works h1 span {
-  background-color: white;
+  position: relative;
   color: var(--gray-900);
+  z-index: 5;
+}
+
+#works h1 span::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 20px;
+  width: 100%;
+  left: 0px;
+  bottom: 0px;
+  z-index: -1;
 }
 
 .works-card {
@@ -163,6 +213,7 @@ nav {
   border-radius: 10px;
   border: 0;
   margin-bottom: 1.5em;
+  height: 300px;
 }
 .works-card:hover {
   transform: scale(1.1);

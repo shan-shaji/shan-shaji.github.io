@@ -11,4 +11,12 @@ $(document).ready(function () {
       },
     },
   });
+
+  var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+    target: "#nav",
+  });
+
+  var dataSpyList = [].slice.call(
+    document.querySelectorAll('[data-bs-spy="scroll"]')
+  );
 });
