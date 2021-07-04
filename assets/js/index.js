@@ -30,6 +30,6 @@ $(document).ready(function () {
     .typeString("<span> a <b>Full Stack Developer</b></span>")
     .pauseFor(300)
     .deleteAll()
-    .typeString("<span> also a <b>UI/UX Designer</b></span>")
+    .typeString("<span> and a <b>UI/UX Designer</b></span>")
     .start();
 });
