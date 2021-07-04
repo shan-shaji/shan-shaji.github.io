@@ -12,11 +12,24 @@ $(document).ready(function () {
     },
   });
 
-  var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-    target: "#nav",
+  // https://safi.me.uk/typewriterjs/
+  // library for type writer effect
+
+  var app = document.getElementById("details");
+
+  var typewriter = new Typewriter(app, {
+    loop: true,
+    delay: 75,
   });
 
-  var dataSpyList = [].slice.call(
-    document.querySelectorAll('[data-bs-spy="scroll"]')
-  );
+  typewriter
+    .pauseFor(2500)
+    .typeString("<span>I'm an <b>App Developer</b></span>")
+    .deleteAll()
+    .pauseFor(300)
+    .typeString("<span> a <b>Full Stack Developer</b></span>")
+    .pauseFor(300)
+    .deleteAll()
+    .typeString("<span> also a <b>UI/UX Designer</b></span>")
+    .start();
 });
