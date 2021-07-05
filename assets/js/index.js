@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  AOS.init();
   $(".owl-carousel").owlCarousel({
     margin: 20,
     nav: true,
