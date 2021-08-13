@@ -11,6 +11,7 @@
   vertical-align: baseline;
 }
 /*===== Margenes =====*/
+
 :root {
   --mb-1: 0.5rem;
   --mb-2: 1rem;
@@ -31,6 +32,10 @@
 
 nav {
   font-weight: 600;
+}
+
+.nav-link{
+  font-size: 20px;
 }
 
 .nav-link.active {
