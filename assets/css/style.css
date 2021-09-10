@@ -1,8 +1,8 @@
 /* Inter font : resource - fonts.google.com */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   border: 0;
@@ -34,7 +34,7 @@ nav {
   font-weight: 600;
 }
 
-.nav-link{
+.nav-link {
   font-size: 20px;
 }
 
@@ -66,7 +66,7 @@ nav {
 }
 
 .hero-content div span::after {
-  content: "";
+  content: '';
   position: absolute;
   height: 50px;
   width: 100%;
@@ -98,7 +98,7 @@ nav {
 }
 
 #about h1 span::after {
-  content: "";
+  content: '';
   position: absolute;
   background-color: white;
   height: 20px;
@@ -116,7 +116,7 @@ nav {
 }
 
 #services h1 span::after {
-  content: "";
+  content: '';
   position: absolute;
   background-color: var(--secondary-color);
   height: 20px;
@@ -137,7 +137,8 @@ nav {
 .services-card:hover {
   transform: scale(1.1);
   background-color: #5033ff;
-  color: white;
+  height: 20px;
+  transition: 0.3s;
 }
 
 .card {
@@ -206,7 +207,7 @@ nav {
 }
 
 #works h1 span::after {
-  content: "";
+  content: '';
   position: absolute;
   background-color: white;
   height: 20px;
@@ -238,9 +239,7 @@ nav {
   margin-bottom: 5%;
   width: 70%;
 }
-.contact-form .form-control {
-  border-radius: 1rem;
-}
+
 .contact-image {
   text-align: center;
 }
@@ -261,12 +260,12 @@ nav {
   margin-top: -10%;
   text-align: center;
   color: var(--gray-900);
+  font-weight: bold;
 }
 
 .contact-form .btnContact {
   width: 100%;
   border: none;
-  border-radius: 1rem;
   padding: 1.5%;
   background: #5033ff;
   font-weight: 600;
@@ -291,6 +290,12 @@ nav {
   margin-bottom: var(--mb-4);
 }
 .footer__icon {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 var(--mb-2);
+}
+
+.footer__icon:hover {
   font-size: 1.5rem;
   color: #fff;
   margin: 0 var(--mb-2);
