@@ -10316,7 +10316,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
   float: left;
 }
 .exp-wrap .desc {
-  width: calc(100% - 250px);
+  width: calc(100% - 200px);
 }
 .exp-wrap .desc h4 span {
   color: #8c8c8c;
@@ -10326,7 +10326,7 @@ header .colorlib-navbar-brand .colorlib-logo:focus {
   margin-bottom: 0;
 }
 .exp-wrap .year {
-  width: 250px;
+  width: 200px;
 }
 
 .progress-wrap {
