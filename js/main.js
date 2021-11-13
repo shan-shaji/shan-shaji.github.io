@@ -103,12 +103,18 @@ $(document).ready(function ($) {
 
   burgerMenu()
 
-  let menuClick = function () {
+  var menuClick = function () {
     $('.a-link-onclick').on('click', (event) => {
-      event.preventDefault()
-      var $this = $(this)
+      var myClass = $('.a-link-onclick').attr('href')
       if ($('body').hasClass('menu-show')) {
         $('body').removeClass('menu-show')
+        $('#colorlib-main-nav > .js-colorlib-nav-toggle').removeClass('show')
+        $('html, body').animate(
+          {
+            scrollTop: $(`#${myClass}`).offset().top,
+          },
+          2000,
+        )
       }
     })
   }
