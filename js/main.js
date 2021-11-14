@@ -41,6 +41,7 @@ $(document).ready(function ($) {
       }
     }, 1)
   }
+  
   loader()
 
   var carousel = function () {

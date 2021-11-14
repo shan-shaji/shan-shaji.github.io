@@ -9785,7 +9785,7 @@ h5,
 
 header {
   padding: 2em 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -9795,7 +9795,7 @@ header {
 @media (max-width: 767.98px) {
   header {
     padding: 2em 0;
-    position: absolute;
+    position: fixed;
   }
 }
 header .colorlib-navbar-brand {
