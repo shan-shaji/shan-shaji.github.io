@@ -1,8 +1,8 @@
-import 'server-only';
+import "server-only";
 
-import { Octokit } from '@octokit/rest';
-import { queryBuilder } from 'lib/planetscale';
-import { cache } from 'react';
+import { Octokit } from "@octokit/rest";
+import { queryBuilder } from "lib/planetscale";
+import { cache } from "react";
 
 export const getBlogViews = cache(async () => {
   if (!process.env.TWITTER_API_TOKEN) {
@@ -10,8 +10,8 @@ export const getBlogViews = cache(async () => {
   }
 
   const data = await queryBuilder
-    .selectFrom('views')
-    .select(['count'])
+    .selectFrom("views")
+    .select(["count"])
     .execute();
 
   return data.reduce((acc, curr) => acc + Number(curr.count), 0);
@@ -40,9 +40,9 @@ export const getStarCount = cache(async () => {
     auth: process.env.GITHUB_TOKEN,
   });
 
-  const req = await octokit.request('GET /repos/{owner}/{repo}', {
-    owner: 'shan-shaji',
-    repo: 'shan-shaji',
+  const req = await octokit.request("GET /repos/{owner}/{repo}", {
+    owner: "shan-shaji",
+    repo: "neo",
   });
 
   return req.data.stargazers_count;

@@ -7,7 +7,7 @@ import {
   TwitterIcon,
   ViewsIcon,
 } from 'components/icons';
-import { name, about, bio, avatar } from 'lib/info';
+import { name, about, bio, avatar } from 'lib/info/info';
 
 export const revalidate = 60;
 
@@ -47,7 +47,7 @@ export default async function HomePage() {
             className="flex items-center gap-2"
           >
             <TwitterIcon />
-            {`${tweetCount.toLocaleString()} tweets all time`}
+            {`${tweetCount?.toLocaleString() ?? ''} tweets all time`}
           </a>
           <a
             rel="noopener noreferrer"
@@ -65,7 +65,7 @@ export default async function HomePage() {
         </div>
       </div>
       <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
-        {bio()}
+        {/* {bio()} */}
       </p>
       <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
         <li>

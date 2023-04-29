@@ -1,14 +1,18 @@
-import me from '../app/avatar.png';
+import me from '../../app/avatar.png';
 
 export const name = 'Shan Shaji';
 export const avatar = me;
+
+
 export const about = () => {
   return (
     <>
-      Hey, I'm a developer who loves Next.js. I work at BigCo or CoolStartup as a Software Engineer.
+      Hi there! I'm Shan Shaji, a Software Engineer who is passionate about developing compelling apps and web experiences. I'm always eager to learn and collaborate with others in the tech community to create innovative solutions.
     </>
   );
 };
+
+
 export const bio = () => {
   return (
     <>
