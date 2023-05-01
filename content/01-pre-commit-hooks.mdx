@@ -1,0 +1,88 @@
+---
+title: "What are pre-commit hooks and How to use in flutter projects?"
+publishedAt: "2023-03-11"
+summary: "A pre-commit hook is a script or program that is executed automatically before a commit is made to a VCS."
+---
+
+Version control systems (VCS) like Git are essential tools for software development, allowing developers to track changes to their code and collaborate with others. One important feature of Git is the ability to use pre-commit hooks, which are scripts or programs that are run automatically before a commit is made. Pre-commit hooks can be used to perform various checks and validations on the code changes being committed, ensuring that they meet certain standards or requirements.
+
+In this article, we'll discuss what pre-commit hooks are, why they're useful, and how to configure them in a Flutter project. We'll also discuss some examples of pre-commit hooks you can use in your projects.
+
+**What is a Pre-Commit Hook?**
+
+A pre-commit hook is a script or program that is executed automatically before a commit is made to a VCS. A pre-commit hook aims to check the changes being committed to ensure they meet certain standards or requirements. For example, a pre-commit hook might be used to enforce code style guidelines, prevent certain files from being committed, or check for syntax errors and other issues.
+
+**Why use Pre-Commit Hooks?**
+
+Pre-commit hooks offer several benefits to software development teams:
+
+- Consistency: Pre-commit hooks can enforce consistent coding standards and practices across the entire team, ensuring that all code adheres to the same guidelines.
+- Error prevention: By running automated checks before commits are made, pre-commit hooks can catch errors and other issues early in the development process, preventing them from being introduced into the codebase.
+- Time savings: Pre-commit hooks can automate time-consuming tasks such as linting and code formatting, freeing up developers to focus on more important tasks.
+- Collaboration: Pre-commit hooks can help ensure that all team members are aware of code changes and are able to review them before they are committed.
+
+**Configuring Pre-Commit Hooks in a Flutter Project:**
+
+Configuring a pre-commit hook in a Flutter project involves creating a script that will be executed before a commit is made, and then configuring Git to run that script automatically. Here are the steps to configure a pre-commit hook in a Flutter project:
+
+Step 1: Create a Pre-Commit Hook Script
+
+The first step is to create a pre-commit hook script that will be run automatically before each commit. This script can be written in any scripting language, but in this article, we'll be using Bash.
+
+Create a file named pre-commit (without any file extension since we are using bash) in the .git/hooks/ directory of your project. If the .git/hooks/ directory does not exist, create it.
+
+Here's an example pre-commit hook script that runs `flutter analyze` and `dart analyze` to check for errors in the code:
+
+```sh
+#!/bin/bash
+
+# Run Flutter analyze and check for errors
+if ! output=$(flutter analyze); then
+    echo "COMMIT REJECTED: Flutter analyze found the following errors:"
+    echo "$output"
+    exit 1
+fi
+
+# Run Dart analyze and check for errors
+if ! output=$(dart analyze); then
+    echo "COMMIT REJECTED: Dart analyze found the following errors:"
+    echo "$output"
+    exit 1
+fi
+
+# If we made it this far, the commit is allowed
+exit 0
+
+```
+
+This script runs `flutter analyze` and `dart analyz`e to check for errors in the code. If either command detects an error, the commit will be rejected.
+
+Step 2: Make the Script Executable
+
+Next, you'll need to make the script executable. To do this, open a terminal and navigate to your Flutter project directory. Then, run the following command:
+
+```sh
+chmod +x pre-commit
+```
+
+This command gives the `pre-commit` script executable permissions.
+
+Step 3: Configure Git to Run the Script
+
+The final step is to configure Git to run the pre-commit hook script automatically before each commit. To do this, navigate to your Flutter project directory in a terminal and run the following command:
+
+```sh
+cd .git/hooks
+ln -s ../../pre-commit pre-commit
+
+```
+
+This command creates a symbolic link to the pre-commit script in the .git/hooks directory, which Git will use to run the script automatically before each commit.
+
+If you have successfully configured a pre-commit hook in your Flutter project and if your codebase has analyzer problems, then you will get an error message indicating that the commit has been rejected.
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3rs4beb336mhwsa6e722.png)
+
+That's it! You've now configured a pre-commit hook in your Flutter project.
+
+Pre-commit hooks are a powerful tool for ensuring code quality and consistency in your Flutter projects. They can be used to enforce coding standards, catch errors and security vulnerabilities, and automate time-consuming tasks. By following the steps outlined in this article, you can easily configure pre-commit hooks in your own projects and improve your development workflow.
