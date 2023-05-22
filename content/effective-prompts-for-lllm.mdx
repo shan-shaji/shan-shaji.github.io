@@ -1,0 +1,186 @@
+---
+title: "Writing Effective Prompts for Large Language Models: Two Prompting Principles and Their Related Tactics"
+publishedAt: "2023-05-23"
+summary: "In this Article, you'll practice one prompting principle and it's related tactics in order to write effective prompts for large language models. "
+---
+
+Note: This is a documented version of ChatGPT Prompt Engineering for Developers course. You can find the course [here](https://learn.deeplearning.ai/chatgpt-prompt-eng/lesson/1/introduction).
+
+Note: In this Article, you'll practice one prompting principle and it's related tactics in order to write effective prompts for large language models. I will create another article on principle 2.
+
+## Prompting Principles
+
+- Principle 1: Write clear and specific instructions.
+- Principle 2: Give the model time to “think”.
+
+**Tactic 1**: Use delimiters to clearly indicate distinct parts of the input.
+
+Delimiters can be anything like:
+
+> - Triple Quotes: ''' '''
+> - Triple Backticks:&#x60;&#x60;&#x60;
+> - Triple Dashes: --- ---
+> - Angle Brackets: <>
+> - Xml Tags: &lt;tag&gt; &lt;/tag&gt;
+
+For example:
+
+```
+
+text = """
+You should express what you want a model to do by \
+providing instructions that are as clear and \
+specific as you can possibly make them. \
+This will guide the model towards the desired output, \
+and reduce the chances of receiving irrelevant \
+or incorrect responses. Don't confuse writing a \
+clear prompt with writing a short prompt. \
+In many cases, longer prompts provide more clarity \
+and context for the model, which can lead to \
+more detailed and relevant outputs.
+"""
+
+prompt = """
+Summarise the text delimited by angle brackets\
+into a single sentence.
+<text>
+"""
+
+```
+
+Output that i got after giving this prompt to chat GPT.
+
+![Delimiter GPT prompt output ](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8e8sj2text6gcv31mgcw.png)
+
+**Tactic 2**: Ask for a structured output
+
+- JSON, HTML
+
+```
+"""
+Generate a list of three made-up book titles along \
+with their authors and genres.
+Provide them in JSON format with the following keys:
+book_id, title, author, genre.
+"""
+```
+
+This prompt will generate the output in json format. If we change the value JSON to HTML then the output will be in HTML format.
+
+**JSON**
+
+```json
+{
+  "books": [
+    {
+      "book_id": 1,
+      "title": "The Secret Garden",
+      "author": "Emily Greenfield",
+      "genre": "Children's Fiction"
+    },
+    {
+      "book_id": 2,
+      "title": "Midnight Shadows",
+      "author": "Jacob Nightfall",
+      "genre": "Thriller"
+    }
+  ]
+}
+```
+
+For those who don't know what is JSON and HTML it is fine. HTML is a markup language used for structuring and presenting web content, while JSON is a data interchange format used for storing and exchanging structured data.
+
+**Tactic 3**: Ask the model to check whether conditions are satisfied
+
+```
+text_1 = """
+Making a cup of tea is easy! First, you need to get some \
+water boiling. While that's happening, \
+grab a cup and put a tea bag in it. Once the water is \
+hot enough, just pour it over the tea bag. \
+Let it sit for a bit so the tea can steep. After a \
+few minutes, take out the tea bag. If you \
+like, you can add some sugar or milk to taste. \
+And that's it! You've got yourself a delicious \
+cup of tea to enjoy.
+"""
+prompt = """
+You will be provided with text delimited by triple quotes.
+If it contains a sequence of instructions, \
+re-write those instructions in the following format:
+
+Step 1 - ...
+Step 2 - …
+…
+Step N - …
+
+If the text does not contain a sequence of instructions, \
+then simply write \"No steps provided.\"
+
+\"\"\"{text_1}\"\"\"
+"""
+```
+
+Output:
+
+![Ask the model to check whether conditions are satisfied](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/s8rcfn1bori34uqn2wic.png)
+
+An effective use case for this tactic involves providing a code snippet that encompasses essential business logic, and subsequently leveraging AI to verify the comprehensive handling of all conditions within the code.
+
+```
+text_2 = """
+The sun is shining brightly today, and the birds are \
+singing. It's a beautiful day to go for a \
+walk in the park. The flowers are blooming, and the \
+trees are swaying gently in the breeze. People \
+are out and about, enjoying the lovely weather. \
+Some are having picnics, while others are playing \
+games or simply relaxing on the grass. It's a \
+perfect day to spend time outdoors and appreciate the \
+beauty of nature.
+"""
+prompt = """
+You will be provided with text delimited by triple quotes.
+If it contains a sequence of instructions, \
+re-write those instructions in the following format:
+
+Step 1 - ...
+Step 2 - …
+…
+Step N - …
+
+If the text does not contain a sequence of instructions, \
+then simply write \"No steps provided.\"
+
+\"\"\"{text_2}\"\"\"
+"""
+```
+
+In this example you can clearly see there are not tasks mentioned in the text. Since there are not steps we need to get "No steps provided." as the output.
+
+Output:
+
+![Ask the model to check whether conditions are satisfied](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vozodh287kk1wtnzpypk.png)
+
+**Tactic 4**: "Few-shot" prompting
+
+```
+prompt = """
+Your task is to answer in a consistent style.
+
+<child>: Teach me about patience.
+
+<grandparent>: The river that carves the deepest \
+valley flows from a modest spring; the \
+grandest symphony originates from a single note; \
+the most intricate tapestry begins with a solitary thread.
+
+<child>: Teach me about resilience.
+"""
+```
+
+This tactic involves training the model with successful examples of tasks and subsequently requesting the model to perform a specific task based on the provided examples.
+
+!["Few-shot" prompting](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pb7yw77o50j48i0a2ioj.png)
+
+In conclusion, Principle 1 emphasizes the significance of providing clear and specific instructions to ChatGPT in order to achieve desired outputs. By expressing instructions in a precise manner, we guide the model towards the intended outcome and minimize the risk of irrelevant or incorrect responses. This principle emphasizes that clarity should not be compromised for the sake of brevity, as longer prompts can provide additional context and enhance the quality of the model's responses. When crafting prompts, it is essential to focus on writing instructions that are as explicit as possible, leaving no room for ambiguity. Following Principle 1 ensures that we harness the full potential of ChatGPT and obtain detailed and relevant outputs that align with our expectations.
